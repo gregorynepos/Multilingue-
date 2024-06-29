@@ -1,6 +1,7 @@
 import os
 from django.core.wsgi import get_wsgi_application
 
+# Spécifiez le module WSGI de votre application Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'votre_projet.settings')
 application = get_wsgi_application()
 
