@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-19 12:14+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+#: multilang_site/templates/home.html:7
+msgid "My Website"
+msgstr "world of greg"
+
+
+#: multilang_site/templates/base.html:37
+msgid "bienvenue sur mon site"
+msgstr "Welcome to my website"
+
+#: multilang_site/templates/base.html:38
+msgid "Explorez notre contenu multilingue et interactif"
+msgstr "Explore our multilingual and interactive content"
+
+#: multilang_site/templates/article_list.html:9
+#: multilang_site/templates/article_list.html:12
+msgid "Articles"
+msgstr "Articles"
+
+
+#: multilang_site/templates/article_list.html:16
+msgid "Title"
+msgstr "Title 1"
+
+#: multilang_site/templates/article_list.html:17
+msgid "Content"
+msgstr "Multilingual websites enable reaching an international audience by offering content in multiple languages. They enhance user experience, increase traffic, and expand global reach. Localization, beyond mere translation, adapts content to local cultures, making websites more relevant and accessible to diverse users. "
+
+#: multilang_site/templates/article_list.html:18
+msgid "Date"
+msgstr "25 JUN 2024"
+
+#: multilang_site/templates/article_list.html:21
+msgid "Title2"
+msgstr "Title 2"
+
+#: multilang_site/templates/article_list.html:22
+msgid "Content2"
+msgstr " Content 2 Multilingual websites enable reaching an international audience by offering content in multiple languages. They enhance user experience, increase traffic, and expand global reach. Localization, beyond mere translation, adapts content to local cultures, making websites more relevant and accessible to diverse users. "
+
+#: multilang_site/templates/article_list.html:23
+msgid "Date2"
+msgstr "28 JUN 2024"
+
+#: multilang_site/templates/article_list.html:26
+msgid "Title3"
+msgstr "Title 3"
+
+#: multilang_site/templates/article_list.html:27
+msgid "Content3"
+msgstr "contenut 3 Multilingual websites enable reaching an international audience by offering content in multiple languages. They enhance user experience, increase traffic, and expand global reach. Localization, beyond mere translation, adapts content to local cultures, making websites more relevant and accessible to diverse users."
+
+#: multilang_site/templates/article_list.html:28
+msgid "Date3"
+msgstr "30 JUN 2024"
+
+
+
+
+

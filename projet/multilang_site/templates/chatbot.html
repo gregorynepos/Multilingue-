@@ -1,0 +1,75 @@
+{% extends 'home.html' %}
+{% load i18n %}
+{% block title %}{% trans "Chatbot" %}{% endblock %}
+{% block body_class %}chatbot-page{% endblock %}
+{% load static %}
+
+{% block content %}
+
+    <div class="hero-artbot">
+        <img id="img-artbot" src="{% static 'image/hero.jpg' %}" alt="{% trans 'Hero Image' %}">
+    </div>
+    <h1>Chatbot</h1>
+    
+    <div id="chat-container">
+        <div id="chat-messages">
+            <!-- Zone où les messages du chatbot et de l'utilisateur seront affichés -->
+        </div>
+        <form id="chat-form">
+            <input type="text" id="user-message" placeholder="Posez une question...">
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+    <!-- JavaScript pour gérer les requêtes AJAX vers le backend Django -->
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            sendMessage();
+        });
+
+        function sendMessage() {
+            var userMessage = document.getElementById('user-message').value;
+            document.getElementById('user-message').value = ''; // Efface le champ de saisie
+
+            fetch('/chatbot/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // Récupère le jeton CSRF de Django pour les requêtes POST sécurisées
+                },
+                body: JSON.stringify({'message': userMessage})
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayMessage(userMessage, 'user');
+                displayMessage(data.response, 'bot');
+            })
+            .catch(error => console.error('Erreur lors de l\'envoi du message :', error));
+        }
+
+        function displayMessage(message, sender) {
+            var chatMessages = document.getElementById('chat-messages');
+            var messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.innerText = message;
+            chatMessages.appendChild(messageElement);
+        }
+        // Fonction pour récupérer le jeton CSRF de Django depuis les cookies
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Vérifie si le cookie correspond au nom souhaité
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+
+{% endblock %}

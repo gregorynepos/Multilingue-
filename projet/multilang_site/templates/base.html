@@ -1,0 +1,67 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% trans "My Website" %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/chatbot.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="{% url 'home' %}" class="navbar-logo"><img src="{% static '/image/diot_siaci_logo.png' %}" alt=""></a>
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+                <li class="navbar-item"><a href="{% url 'article_list' %}">{% trans "Articles" %}</a></li>
+                <li class="navbar-item"><a href="{% url 'chatbot_view' %}">{% trans "Chatbot" %}</a></li>
+            </ul>
+            <form action="{% url 'set_language' %}" method="post" class="language-form">
+                {% csrf_token %}
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% for lang in LANGUAGES %}
+                        <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                            {{ lang.1 }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="{% trans 'Change language' %}">
+            </form>
+        </div>
+    </nav>
+    <header class="hero-section">
+        <div class="hero-text">
+            <h1>{% trans "bienvenue sur mon site" %}</h1>
+            <p>{% trans "Explorez notre contenu multilingue et interactif" %}</p>
+        </div>
+        
+    </header>
+   <main>
+    {% block content %}
+    {% endblock %}
+   </main>
+   <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <a href="{% url 'home' %}"><img src="{% static 'image/diot_siaci_logo.png' %}" alt="DiotSiaci Logo"></a>
+        </div>
+        <div class="footer-menu">
+            <ul>
+                <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+                <li><a href="{% url 'article_list' %}">{% trans "Articles" %}</a></li>
+                <li><a href="{% url 'chatbot_view' %}">{% trans "Chatbot" %}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 DiotSiaci. {% trans "All rights reserved." %}</p>
+    </div>
+</footer>
+
+</body>
+</html>

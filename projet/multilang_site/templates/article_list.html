@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Articles" %}{% endblock %}
+{% block body_class %}articles-page{% endblock %}
+
+{% block content %}
+<div class="hero-artbot">
+    <img id="img-artbot" src="{% static 'image/hero.jpg' %}" alt="{% trans 'Hero Image' %}">
+</div>
+    <h1>{% trans "Articles" %}</h1>
+    <ul>
+
+            <li>
+                <h2>{% trans "Title" %}</h2>
+                <p>{% trans "Content" %}</p>
+                <p><em>{% trans "Date" %}</em></p>
+            </li> 
+            <li>
+                <h2>{% trans "Title2" %}</h2>
+                <p>{% trans "Content2" %}</p>
+                <p><em>{% trans "Date2" %}</em></p>
+            </li>
+            <li>
+                <h2>{% trans "Title3" %}</h2>
+                <p>{% trans "Content3" %}</p>
+                <p><em>{% trans "Date3" %}</em></p>
+            </li>
+            
+    </ul>
+
+{% endblock %}

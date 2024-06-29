@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+        <div class="hero-image">
+            <img id="img-home" src="{% static 'image/hero.jpg' %}" alt="{% trans 'Hero Image' %}">
+        </div>
+  
+{% endblock %}
