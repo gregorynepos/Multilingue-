@@ -7,14 +7,14 @@ For more information on this file, see
 https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
-
 import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'votre_projet.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'multilang_site.settings')
 
-# Utilisation de Gunicorn comme serveur WSGI
+application = get_wsgi_application()
+
 from django.conf import settings
 from django.core.management import call_command
 
@@ -22,8 +22,7 @@ if settings.DEBUG:
     application = get_wsgi_application()
 else:
     from django.core.wsgi import get_wsgi_application
-    from whitenoise import DjangoWhiteNoise
-
+    from whitenoise.django import DjangoWhiteNoise
     application = get_wsgi_application()
     application = DjangoWhiteNoise(application)
 
