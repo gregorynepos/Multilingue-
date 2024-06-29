@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
-import environ
 # import openai
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,19 +40,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-
-# Lire le fichier .env
-environ.Env.read_env()
-
-DEBUG = env('DEBUG')
-SECRET_KEY = env('SECRET_KEY')
-DATABASES = {
-    'default': env.db(),
-}
 
 # Application definition
 
