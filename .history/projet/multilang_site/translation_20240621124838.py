@@ -1,5 +1,5 @@
 from modeltranslation.translator import TranslationOptions, register
-from .app.models import Article
+from .models import Article
 
 @register(Article)
 class ArticleTranslationOptions(TranslationOptions):
